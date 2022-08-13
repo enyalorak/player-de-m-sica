@@ -16,7 +16,6 @@ let musicas = [
 
 
 let musica = document.querySelector('audio'); //p manipular a musica
-
 let indexMusica = 0;
 
 let duracaoMusica = document.querySelector('.fim');
@@ -29,7 +28,7 @@ let nomeArtista = document.querySelector('.descricao i');
 
 renderizarMusica(indexMusica); //vai recarregar tds as informaçoes do array
 
-//atualizar a duraçaõ da musica de acordo com sua real duracao
+//atualizar a duraçaõ da musica  de acordo com sua real duracao
 //duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
 //criar evento de click no botao
 //p quando clicar no botão tocar a musica
@@ -52,21 +51,21 @@ document.querySelector('.anterior').addEventListener('click', () =>{
 document.querySelector('.proximo').addEventListener('click', () =>{
     indexMusica++;
     if (indexMusica>2){
-        indexMusica 
+        indexMusica = 0;
     }
     renderizarMusica(indexMusica);
 });
 //FUNCOES
 function renderizarMusica(index){//vamos renderizar a musica de acordo com o index do array musicas
-    musica.setAttribute('src', musicas[index.src]);
-    musica.addEventListener('loadeddata', () =>{
+    musica.setAttribute('src', musicas[index].src);
+    musica.addEventListener('loadeddata', () => {
         nomeMusica.textContent = musicas[index].titulo;
         nomeArtista.textContent = musicas[index].artista;
         imagem.src = musicas[index].img;
         duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
-    })
+    });
 
-    duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
+
 }
 //substituo o src original dp html pelo atributo src que esta dentro do array musicas
 
